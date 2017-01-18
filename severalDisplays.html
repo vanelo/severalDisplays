@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+    <script>
+      /*esconder y mostrar iframe uno a la vez cada 8 segundos*/
+      $(document).ready(function(){
+        var len = $("#iframeList li").length;
+        console.log('cantidad ' + len);
+        var iframe;
+        var i = 0;
+        setInterval(function () {
+            if(i==len) i=0
+            $("li").hide();
+            iframe="#iframe" + i++;
+            console.log(iframe);
+            $(iframe).show();
+        }, 8000);
+      });
+      /*Recargar la pagina cada cinco minutos*/
+      setTimeout('document.location.reload()',300000);
+    </script>
+    <style type="text/css">
+      li{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin:none;
+        padding: none;
+      }
+      iframe{
+        border: none;
+        margin:none;
+        height: 100%;
+        width: 100%;
+      }
+      ul, li{
+        border: none;
+        margin:none;
+        padding: none;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="iframeList">
+      <li id="iframe0"><iframe src="https://www.monalisa.com.py"></iframe></li>
+      <li id="iframe1"><iframe src="http://www.ultimahora.com"></iframe></li>
+    </ul>
+  </body>
+</html>
