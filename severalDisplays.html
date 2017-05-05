@@ -11,6 +11,7 @@
         left: 0;
         margin:none;
         padding: none;
+        display: none;
       }
       iframe{
         border: none;
@@ -27,6 +28,10 @@
     </style>
   </head>
   <body>
+    <ul id="pagesList">
+      <li id="iframe0"><iframe src="page1.html"></iframe></li>
+      <li id="iframe1"><iframe src="page2.html"></iframe></li>
+    </ul>
     <script type="text/javascript">
       //funcion para hacer auto scroll hacia abajo
       function goBottom(time){
@@ -34,24 +39,21 @@
         $('html, body').animate({scrollTop : n},time);
       }
       /*esconder y mostrar iframe por vez cada 8 segundos*/
-      $(document).ready(function(){
+      //$(document).ready(function(){
         var len = $("#pagesList li").length;
-        var current_iframe;
         var i = 0;
+        var current_iframe="#iframe" + i;
+        $(current_iframe).show();
         setInterval(function () {
             if(i==len) i=0
             $("li").hide();
             current_iframe="#iframe" + i++;
             $(current_iframe).show();
             //goBottom(7000);
-        }, 15000);
-      });
+        }, 5000);
+     // });
       /*Recargar la pagina cada cinco minutos*/
       //setTimeout('document.location.reload()',300000);
     </script>
-    <ul id="pagesList">
-      <li id="iframe0"><iframe src="page1.html"></iframe></li>
-      <li id="iframe1"><iframe src="page2.html"></iframe></li>
-    </ul>
   </body>
 </html>
