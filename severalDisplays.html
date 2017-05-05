@@ -31,20 +31,17 @@
       //funcion para hacer auto scroll hacia abajo
       function goBottom(time){
         var n = $(document).height();
-        console.log("-------------------------------------------------------------"+n);
         $('html, body').animate({scrollTop : n},time);
       }
       /*esconder y mostrar iframe por vez cada 8 segundos*/
       $(document).ready(function(){
         var len = $("#pagesList li").length;
-        console.log('cantidad ' + len);
         var current_iframe;
         var i = 0;
         setInterval(function () {
             if(i==len) i=0
             $("li").hide();
             current_iframe="#iframe" + i++;
-            console.log(current_iframe);
             $(current_iframe).show();
             //goBottom(7000);
         }, 15000);
